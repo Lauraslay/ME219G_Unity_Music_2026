@@ -9,7 +9,7 @@ using FMOD.Studio;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-    
+
     public float combatTimerLength = 0f;
 
     [System.Serializable]
@@ -17,17 +17,18 @@ public class AudioManager : MonoBehaviour
     {
         public StudioEventEmitter musicMenu;
         public StudioEventEmitter music;
+        public StudioEventEmitter music02;
         public StudioEventEmitter musicBoss;
         public StudioEventEmitter musicPause;
         public StudioEventEmitter ambiance;
         public StudioEventEmitter snapShotPause;
     }
+
     public Emitters eventEmitters;
 
-    [Space(10)]
+    [Space(10)] [Header("Player")] [SerializeField]
+    private EventReference playerFootsteps;
 
-    [Header("Player")]
-    [SerializeField] private EventReference playerFootsteps;
     [SerializeField] private EventReference playerJump;
     [SerializeField] private EventReference playerLand;
     [SerializeField] private EventReference playerAttackMelee;
@@ -36,8 +37,9 @@ public class AudioManager : MonoBehaviour
     EventInstance playerFootstepInstance;
     EventInstance playerLandInstance;
 
-    [Header("Objects & Interactables")]
-    [SerializeField] private EventReference wallDestroy;
+    [Header("Objects & Interactables")] [SerializeField]
+    private EventReference wallDestroy;
+
     [SerializeField] private EventReference pickupHealth;
     [SerializeField] private EventReference doorSwitch;
     [SerializeField] private EventReference doorOpen;
@@ -47,23 +49,21 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private EventReference boxPush;
     EventInstance boxPushInstance;
 
-    [Header("UI")]
-    [SerializeField] private EventReference menuClick;
+    [Header("UI")] [SerializeField] private EventReference menuClick;
     [SerializeField] private EventReference menuStartGame;
-    
-    [Header("Enemies")]
-    [SerializeField] private EventReference enemyFootstep;
+
+    [Header("Enemies")] [SerializeField] private EventReference enemyFootstep;
     [SerializeField] private EventReference enemyRanged;
     [SerializeField] private EventReference enemyMelee;
     [SerializeField] private EventReference enemyDeath;
     private EventInstance enemyFootstepInstance;
 
-    [Header("Stingers")]
+    [Header("Stingers")] 
+    [SerializeField] private EventReference stingerGameOver;
     [SerializeField] private EventReference stingerKeyPickup;
     [SerializeField] private EventReference stingerWeaponPickup;
-        
-    [HideInInspector]
-    public bool combatState;
+
+    [HideInInspector] public bool combatState;
     private bool timerRunning;
     private int killedEnemies = 0;
     private string killedEnemiesParam = "EnemiesKilled";
@@ -85,9 +85,10 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
         }
+
         DontDestroyOnLoad(this);
     }
-    
+
     public void Health(int currentHealth)
     {
         // Insert global parameter for Health here
@@ -97,7 +98,7 @@ public class AudioManager : MonoBehaviour
     private void Update()
     {
         comboTimer -= Time.deltaTime;
-        
+
         if (comboTimer <= 0)
         {
             killedEnemies = 0;
@@ -105,7 +106,7 @@ public class AudioManager : MonoBehaviour
         }
 
         Debug.Log(aggroEnemyCount);
-        
+
         //RuntimeManager.StudioSystem.setParameterByName(aggroEnemyParamName, aggroEnemyCount);
     }
 
@@ -116,6 +117,7 @@ public class AudioManager : MonoBehaviour
         {
             StartCoroutine(CombatTimer());
         }
+
         if (combatState == true && timerRunning == true)
         {
             StopAllCoroutines();
@@ -128,7 +130,7 @@ public class AudioManager : MonoBehaviour
     private IEnumerator CombatTimer()
     {
         RuntimeManager.StudioSystem.setParameterByName("Combat", 1f);
-        
+
         Debug.Log("Timer on");
         timerRunning = true;
         float timer = combatTimerLength;
@@ -137,9 +139,10 @@ public class AudioManager : MonoBehaviour
             timer -= Time.deltaTime;
             yield return null;
         }
+
         combatState = false;
         timerRunning = false;
-        
+
         RuntimeManager.StudioSystem.setParameterByName("Combat", 0f);
         Debug.Log("Timer off");
     }
@@ -151,8 +154,9 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Fmod event not found: playerFootstep");
             return;
         }
+
         playerFootstepInstance = RuntimeManager.CreateInstance(playerFootsteps);
-        switch(surface)
+        switch (surface)
         {
             case "Grass":
                 playerFootstepInstance.setParameterByName("Surface", 0f);
@@ -167,6 +171,7 @@ public class AudioManager : MonoBehaviour
                 playerFootstepInstance.setParameterByName("Surface", 0f);
                 break;
         }
+
         playerFootstepInstance.start();
         playerFootstepInstance.release();
     }
@@ -178,6 +183,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Fmod event not found: playerJump");
             return;
         }
+
         RuntimeManager.PlayOneShot(playerJump);
     }
 
@@ -188,8 +194,9 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Fmod event not found: playerLand");
             return;
         }
+
         playerLandInstance = RuntimeManager.CreateInstance(playerLand);
-        switch(surface)
+        switch (surface)
         {
             case "Grass":
                 playerFootstepInstance.setParameterByName("Surface", 0f);
@@ -204,27 +211,30 @@ public class AudioManager : MonoBehaviour
                 playerFootstepInstance.setParameterByName("Surface", 0f);
                 break;
         }
+
         playerLandInstance.start();
         playerLandInstance.release();
     }
 
-	public void PlayMelee()
-	{
+    public void PlayMelee()
+    {
         if (playerAttackMelee.IsNull)
         {
             Debug.LogWarning("Fmod event not found: playerAttackMelee");
             return;
         }
+
         RuntimeManager.PlayOneShot(playerAttackMelee, transform.position);
     }
 
-	public void PlayRanged()
-	{
+    public void PlayRanged()
+    {
         if (playerAttackRanged.IsNull)
         {
             Debug.LogWarning("Fmod event not found: playerAttackRanged");
             return;
         }
+
         RuntimeManager.PlayOneShot(playerAttackRanged, transform.position);
     }
 
@@ -235,6 +245,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Fmod event not found: playerHurt");
             return;
         }
+
         RuntimeManager.PlayOneShot(playerHurt, transform.position);
     }
 
@@ -245,6 +256,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Fmod event not found: wallDestroy");
             return;
         }
+
         RuntimeManager.PlayOneShot(wallDestroy, destroyObject.transform.position);
     }
 
@@ -255,6 +267,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Fmod event not found: doorOpen");
             return;
         }
+
         RuntimeManager.PlayOneShot(doorOpen, doorObject.transform.position);
     }
 
@@ -265,6 +278,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Fmod event not found: boxPush");
             return;
         }
+
         if (pushing)
         {
             boxPushInstance = RuntimeManager.CreateInstance(boxPush);
@@ -286,6 +300,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Fmod event not found: pickupHealth");
             return;
         }
+
         RuntimeManager.PlayOneShot(pickupHealth);
     }
 
@@ -296,6 +311,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Fmod event not found: doorSwitch");
             return;
         }
+
         RuntimeManager.PlayOneShotAttached(doorSwitch, switchObject);
         Debug.Log("Played DoorSwitch");
     }
@@ -309,11 +325,24 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Fmod event not found: stingerKeyPickup");
             return;
         }
+
         RuntimeManager.PlayOneShotAttached(stingerKeyPickup, keyObject);
         Debug.Log("Played stingerKeyPickup");
     }
 
-    public void PlayWeaponPickup()
+    public void PlayGameOver()
+    {
+        if (stingerGameOver.IsNull) 
+        {
+            Debug.LogWarning("Fmod event not found: stingerGameOver"); 
+            return;
+        }
+        
+        RuntimeManager.PlayOneShot(stingerGameOver);  
+        Debug.Log("Played stingerGameOver");
+    }
+
+public void PlayWeaponPickup()
     {
         if (stingerWeaponPickup.IsNull)
         {

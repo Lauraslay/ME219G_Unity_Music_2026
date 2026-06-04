@@ -170,14 +170,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
+  CollisionTag: MenuStart
   EventReference:
     Guid:
       Data1: 50435726
       Data2: 1303341753
       Data3: 2052440758
       Data4: -944138171
-    Path: event:/Music/Zone 1-4
+    Path: event:/Music/Music
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -302,6 +302,7 @@ Transform:
   m_Children:
   - {fileID: 7188620585383569979}
   - {fileID: 7343739692746708910}
+  - {fileID: 3060650929993023494}
   - {fileID: 5138542554865848846}
   - {fileID: 4782723540720384308}
   - {fileID: 4318290237544591133}
@@ -322,8 +323,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   combatTimerLength: 3
   eventEmitters:
-    musicMenu: {fileID: 110158806593295546}
+    musicMenu: {fileID: 0}
     music: {fileID: 5158617837186310920}
+    music02: {fileID: 7301426358443243965}
     musicBoss: {fileID: 3257842776572977270}
     musicPause: {fileID: 4860983653683116548}
     ambiance: {fileID: 4318290237544591130}
@@ -468,20 +470,27 @@ MonoBehaviour:
       Data3: -564437090
       Data4: -914482641
     Path: event:/Enemies/Enemy_Die
+  stingerGameOver:
+    Guid:
+      Data1: 1495309386
+      Data2: 1198698233
+      Data3: 22426262
+      Data4: -1088740383
+    Path: event:/Music/GameOver
   stingerKeyPickup:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1596669386
+      Data2: 1105073940
+      Data3: -817578352
+      Data4: -807002010
+    Path: event:/Music/Key
   stingerWeaponPickup:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1596669386
+      Data2: 1105073940
+      Data3: -817578352
+      Data4: -807002010
+    Path: event:/Music/Key
   combatState: 0
   aggroEnemyParamName: 
   aggroEnemyCount: 0
@@ -557,7 +566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7188620585383569979}
-  - component: {fileID: 110158806593295546}
+  - component: {fileID: 1522374750211739357}
   m_Layer: 0
   m_Name: MusicMenu
   m_TagString: MusicMenu
@@ -580,7 +589,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4318290237554146966}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &110158806593295546
+--- !u!114 &1522374750211739357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -591,8 +600,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: MenuStart
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
   EventReference:
     Guid:
       Data1: -1166362670
@@ -602,14 +611,75 @@ MonoBehaviour:
     Path: event:/Music/Main Menu
   Event: 
   EventPlayTrigger: 1
-  EventStopTrigger: 5
+  EventStopTrigger: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   NonRigidbodyVelocity: 0
-  Params:
-  - Name: Mainmenu
-    Value: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!1 &6294645697785201339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3060650929993023494}
+  - component: {fileID: 7301426358443243965}
+  m_Layer: 0
+  m_Name: Music02
+  m_TagString: Music02
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3060650929993023494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6294645697785201339}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4318290237554146966}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7301426358443243965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6294645697785201339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: Music
+  EventReference:
+    Guid:
+      Data1: 1385061516
+      Data2: 1269283096
+      Data3: 1220294313
+      Data4: -62764346
+    Path: event:/Music/Music02
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
