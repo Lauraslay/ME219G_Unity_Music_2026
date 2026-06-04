@@ -28994,6 +28994,11 @@ PrefabInstance:
       propertyPath: EventReference.Guid.Data4
       value: -1459112169
       objectReference: {fileID: 0}
+    - target: {fileID: 1522374750211739357, guid: 8b7499782bc734d9eb2dde86fcc6b7e9,
+        type: 3}
+      propertyPath: EventPlayTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4318290237554146964, guid: 8b7499782bc734d9eb2dde86fcc6b7e9,
         type: 3}
       propertyPath: m_Name
@@ -29100,7 +29105,7 @@ PrefabInstance:
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
       propertyPath: audioSettings.Array.data[1].parameter
-      value: Location
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}

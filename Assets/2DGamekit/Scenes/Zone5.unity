@@ -52157,7 +52157,7 @@ PrefabInstance:
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
       propertyPath: audioSettings.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
@@ -52186,6 +52186,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
+      propertyPath: audioSettings.Array.data[5].tag
+      value: MusicMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
+        type: 3}
       propertyPath: audioSettings.Array.data[0].action
       value: 1
       objectReference: {fileID: 0}
@@ -52208,6 +52213,11 @@ PrefabInstance:
         type: 3}
       propertyPath: audioSettings.Array.data[4].action
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
+        type: 3}
+      propertyPath: audioSettings.Array.data[5].action
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
@@ -52241,6 +52251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
+      propertyPath: audioSettings.Array.data[5].parameter
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
+        type: 3}
       propertyPath: audioSettings.Array.data[0].playOrStop
       value: 1
       objectReference: {fileID: 0}
@@ -52263,6 +52278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: audioSettings.Array.data[4].targetValue
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
+        type: 3}
+      propertyPath: audioSettings.Array.data[5].targetValue
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8283495161900147265, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
@@ -69553,12 +69573,12 @@ PrefabInstance:
     - target: {fileID: 4256432018734796894, guid: 056286e10563bf64cae51e44c59f8d93,
         type: 3}
       propertyPath: stage1Value
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4256432018734796894, guid: 056286e10563bf64cae51e44c59f8d93,
         type: 3}
       propertyPath: stage2Value
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4256432018734796894, guid: 056286e10563bf64cae51e44c59f8d93,
         type: 3}
