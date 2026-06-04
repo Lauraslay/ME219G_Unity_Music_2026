@@ -22,6 +22,7 @@ public class AudioBossManager : MonoBehaviour
     public string stageParameter = "";
     public float stage1Value = 0f;
     public float stage2Value = 0f;
+    public float stage3Value = 0f;
     public float bossDeathValue = 0f;
     public string stunParameter = "";
 
@@ -134,6 +135,14 @@ public class AudioBossManager : MonoBehaviour
                 eventInstance = RuntimeManager.CreateInstance(bossSteamStage);
                 RuntimeManager.AttachInstanceToGameObject(eventInstance, boss.transform);
                 eventInstance.setParameterByName("SteamStage", 2f);
+                eventInstance.start();
+                eventInstance.release();
+                break;
+            case 3:
+                bossMusicEmitter.SetParameter(stageParameter, stage3Value);
+                eventInstance = RuntimeManager.CreateInstance(bossSteamStage);
+                RuntimeManager.AttachInstanceToGameObject(eventInstance, boss.transform);
+                eventInstance.setParameterByName("SteamStage", 3f);
                 eventInstance.start();
                 eventInstance.release();
                 break;
