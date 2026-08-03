@@ -8760,11 +8760,21 @@ PrefabInstance:
     - target: {fileID: 3371524719925752820, guid: ac1c8692c9aeaca48ab541c2147b8923,
         type: 3}
       propertyPath: audioTriggerSettings.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3371524719925752820, guid: ac1c8692c9aeaca48ab541c2147b8923,
         type: 3}
       propertyPath: audioTriggerSettings.Array.data[0].tag
+      value: Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371524719925752820, guid: ac1c8692c9aeaca48ab541c2147b8923,
+        type: 3}
+      propertyPath: audioTriggerSettings.Array.data[1].tag
+      value: Music02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371524719925752820, guid: ac1c8692c9aeaca48ab541c2147b8923,
+        type: 3}
+      propertyPath: audioTriggerSettings.Array.data[2].tag
       value: Music
       objectReference: {fileID: 0}
     - target: {fileID: 3371524719925752820, guid: ac1c8692c9aeaca48ab541c2147b8923,
@@ -8774,13 +8784,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3371524719925752820, guid: ac1c8692c9aeaca48ab541c2147b8923,
         type: 3}
+      propertyPath: audioTriggerSettings.Array.data[1].action
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371524719925752820, guid: ac1c8692c9aeaca48ab541c2147b8923,
+        type: 3}
+      propertyPath: audioTriggerSettings.Array.data[2].action
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371524719925752820, guid: ac1c8692c9aeaca48ab541c2147b8923,
+        type: 3}
       propertyPath: audioTriggerSettings.Array.data[0].parameter
-      value: Zone
+      value: Mute
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371524719925752820, guid: ac1c8692c9aeaca48ab541c2147b8923,
+        type: 3}
+      propertyPath: audioTriggerSettings.Array.data[1].parameter
+      value: Mute
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371524719925752820, guid: ac1c8692c9aeaca48ab541c2147b8923,
+        type: 3}
+      propertyPath: audioTriggerSettings.Array.data[2].parameter
+      value: Mute
       objectReference: {fileID: 0}
     - target: {fileID: 3371524719925752820, guid: ac1c8692c9aeaca48ab541c2147b8923,
         type: 3}
       propertyPath: audioTriggerSettings.Array.data[0].targetValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371524719925752820, guid: ac1c8692c9aeaca48ab541c2147b8923,
+        type: 3}
+      propertyPath: audioTriggerSettings.Array.data[1].targetValue
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371524719925752820, guid: ac1c8692c9aeaca48ab541c2147b8923,
+        type: 3}
+      propertyPath: audioTriggerSettings.Array.data[2].targetValue
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29323,6 +29363,11 @@ MonoBehaviour:
     action: 3
     parameter: Keys
     targetValue: 1
+  - emitter: {fileID: 0}
+    tag: Music02
+    action: 3
+    parameter: Keys
+    targetValue: 1
 --- !u!1001 &1735260187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36098,7 +36143,7 @@ PrefabInstance:
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
       propertyPath: audioSettings.Array.data[3].tag
-      value: Music02
+      value: Music
       objectReference: {fileID: 0}
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
@@ -36128,7 +36173,7 @@ PrefabInstance:
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
       propertyPath: audioSettings.Array.data[3].action
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
@@ -36153,7 +36198,7 @@ PrefabInstance:
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
       propertyPath: audioSettings.Array.data[2].parameter
-      value: 
+      value: Location
       objectReference: {fileID: 0}
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
@@ -36163,7 +36208,7 @@ PrefabInstance:
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
       propertyPath: audioSettings.Array.data[3].parameter
-      value: 
+      value: Zone
       objectReference: {fileID: 0}
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
@@ -36218,7 +36263,7 @@ PrefabInstance:
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
       propertyPath: audioSettings.Array.data[3].targetValue
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8283495161900147264, guid: 5e02d266c3b0145ccad01d32166fc7b1,
         type: 3}
