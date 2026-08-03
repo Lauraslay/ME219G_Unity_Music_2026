@@ -108,6 +108,7 @@ namespace Gamekit2D
                     canvasGroup = Instance.faderCanvasGroup;
                     break;
                 case FadeType.GameOver:
+                    AudioManager.Instance.PlayGameOver();
                     canvasGroup = Instance.gameOverCanvasGroup;
                     break;
                 default:
